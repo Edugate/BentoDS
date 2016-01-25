@@ -1,10 +1,11 @@
 {
- "title" : "discoverty serice dsfsdf",
+ "title" : "Discovery Service",
  "logo" : "logo.png",
  "basehref" : "/DS/",
  "srcidplist": "https://edugate.heanet.ie/rr3/disco/circle/",
  "srcdataapp": "jagger",
  "srcidplistfallback": "https://edugate.heanet.ie/rr3/disco/getall/metadata.json",
  "srcdataappfallback": "jagger",
- "srcrequesterinfo": "https://edugate.heanet.ie/rr3/disco/requester/"
+ "srcrequesterinfo": "https://edugate.heanet.ie/rr3/disco/requester/",
+ "xdomainproxyurl": "https://edugate.heanet.ie/proxy.html"
 }
