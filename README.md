@@ -7,11 +7,51 @@ BentoDS is a simple IdP Discovery Service (SAML).
 
 ### Requirements
    * nodejs
-   * compass
+   * compass (can be installed with gem)
    
+     ```bash
+     gem install compass
+     ```
+     
+   * recomended to install grunt, grunt-cli, bower globally
+     ```bash
+     npm install -g grunt grunt-cli bower
+     ```
+     
+### Configuration
+   * copy config-tmp.json to ngDS.json
+   * modify ngDS.json
+     * title : title header
+     * logo : filename with you logo - copy you logo into app/img/
+     * basehref : URI of your service - for example if you plan to set you DiscoveryService as https://example.com/WAYF/ 
+       you need to set '/WAYF/' - remember about slashes
+     * srcidplist : URL of you Jagger instance's controller 
+     * srcdataapp : keep it as it is - 'jagger'
+     * srcidplistfallback : optional location of data - needs to be the same format as generated from srcidplist
+     * srcdataappfallback : keep as it is 'jagger'
+     * srcrequesterinfo : url to retrieve info about SP from jagger
+     * xdomainproxyurl : to get IE9 working properly you need to create proxy.html file somewhere on virtualhost where you want
+       to retrieve data from. The proxy.html should look like:
+
+       ```html
+       <!DOCTYPE HTML>
+       <script src="xdomain.min.js" master="*"></script>
+       ```
+       xdomain js can be pulled from https://github.com/jpillora/xdomain
+       
 ### Building
+  go to you application directory
   ```bash
   $ npm install
   $ bower install
   $ grunt build
+  ```
+  it will generate final files into **dist** directory
+
+  Then you need to configure you apache to point to this Directory
+  
+## ToDo
+ * tests scripts
+ * add suport to Shibboleth DiscoFeed
+ * more ...
 
