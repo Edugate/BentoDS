@@ -1,6 +1,6 @@
 {
-  "name": "dsApp",
-  "version": "0.0.0",
+  "name": "BentoDS",
+  "version": "1.0.1",
   "dependencies": {
     "angular": "^1.4.0",
     "bootstrap-sass-official": "^3.2.0",
@@ -21,7 +21,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "dsApp",
+  "moduleName": "BentoDS",
   "overrides": {
     "bootstrap": {
       "main": [

@@ -1,6 +1,6 @@
 /* Discovery Service part */
 
-var dsApp = angular.module('dsApp', [ // jshint ignore:line
+var BentoDS = angular.module('BentoDS', [ // jshint ignore:line
     'base64',
     'ngRoute',
     'ngResource',
@@ -14,7 +14,7 @@ var dsApp = angular.module('dsApp', [ // jshint ignore:line
 
 ]);
 
-dsApp.constant('config', {
+BentoDS.constant('config', {
     srcDataApp: '@@srcdataapp',
     srcIdPList: '@@srcidplist',
     srcRequesterInfo: '@@srcrequesterinfo',
@@ -22,7 +22,7 @@ dsApp.constant('config', {
     srcDataAppFallback: '@@srcdataappfallback'
 });
 
-dsApp.config(['$locationProvider', '$routeProvider',
+BentoDS.config(['$locationProvider', '$routeProvider',
     function ($locationProvider, $routeProvider) {
       "use strict";
         $locationProvider.html5Mode({

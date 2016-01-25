@@ -26,7 +26,7 @@ module.exports = function (grunt) {
   };
 
   var jnl2 = {
-    'title' : 'discoverty serice',
+    'title' : 'Discovery Service',
     'logo' : 'logo.png',
     'basehref' : '/DS/',
     'srcidplist': 'https://edugate.heanet.ie/rr3/disco/circle/',
@@ -454,7 +454,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'dsApp',
+          module: 'BentoDS',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
