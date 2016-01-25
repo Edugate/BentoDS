@@ -33,7 +33,8 @@ module.exports = function (grunt) {
     'srcdataapp': 'jagger',
     'srcidplistfallback': 'https://edugate.heanet.ie/rr3/disco/getall/metadata.json',
     'srcdataappfallback': 'jagger',
-    'srcrequesterinfo': 'https://edugate.heanet.ie/rr3/disco/requester/'
+    'srcrequesterinfo': 'https://edugate.heanet.ie/rr3/disco/requester/',
+    'xdomainproxyurl': 'https://edugate.heanet.ie/proxy.html'
   }
 
   var jnl;
@@ -101,7 +102,8 @@ module.exports = function (grunt) {
                 "srcidplistfallback": jnl.srcidplistfallback,
                 "srcdataapp": jnl.srcdataapp,
                 "srcdataappfallback": jnl.srcdataappfallback,
-                "srcrequesterinfo": jnl.srcrequesterinfo
+                "srcrequesterinfo": jnl.srcrequesterinfo,
+                "xdomainproxyurl": jnl.xdomainproxyurl
               }
             }
           ],
@@ -507,6 +509,11 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          cwd: '.',
+          src: 'bower_components/xdomain/dist/*',
           dest: '<%= yeoman.dist %>'
         }]
       },

@@ -6,16 +6,16 @@
     "bootstrap-sass-official": "^3.2.0",
     "angular-animate": "^1.4.0",
     "angular-cookies": "^1.4.0",
-    "angular-cookie": "*",
+    "angular-cookie": "^4.0.10",
     "angular-resource": "^1.4.0",
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
     "angular-google-maps": "*",
-    "angular-base64": "*",
-    "angular-bootstrap": "*",
-    "ngmap": "*",
-    "xdomain": "*"
+    "angular-base64": "^2.0.5",
+    "angular-bootstrap": "^1.1.*",
+    "ngmap": "^1.16.7",
+    "xdomain": "^0.7.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
