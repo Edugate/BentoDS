@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/app.css">
+    <!-- endbuild -->
+    <title>@@title</title>
+    <base href="@@basehref">
+  </head>
+  <body ng-app="dsApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+<div ng-show="position != null">
+    Your coords: Longitude:{{position.coords.longitude}} , Latitude: {{position.coords.latitude}}
+</div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img ng-src="img/@@logo" err-src="img/defaultlogo.png " style="max-width:100px; max-height: 40px; margin-top: -10px;" ></a>
+        </div>
+    </div>
+
+</nav>
+
+
+<div class="view-container">
+    <div ng-view class="view-frame"></div>
+</div>
+<div ng-if="item" >
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header ng-scope">
+
+            <button type="button" class="close" ng-click="ok()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title">{{item.title}}</h3>
+            <h4 class="modal-title">{{item.name}}</h4>
+        </div>
+        <div class="modal-body" >
+
+            <map  center="[{{item.geo.lat}},{{item.geo.lon}}]" zoom-control="true" zoom="13" disable-default-u-i="true">
+                <marker data-position="[{{item.geo.lat}}, {{item.geo.lon}}]" title="{{item.title}}"></marker>
+
+            </map>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Close</button>
+
+        </div>
+        </div>
+    </script>
+</div>
+
+
+
+
+
+
+
+<footer class="footer navbar-fixed-bottom">
+    <div class="container"></div>
+</footer>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-base64/angular-base64.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/xdomain/dist/xdomain.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="https://maps.google.com/maps/api/js"></script>
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/directives.js"></script>
+        <script src="scripts/animations.js"></script>
+        <script src="scripts/controllers.js"></script>
+        <script src="scripts/filters.js"></script>
+        <script src="scripts/services.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

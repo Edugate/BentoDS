@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-2 col-lg-3 hidden-xs hidden-sm">
+            <!--Sidebar content-->
+
+            <div class="col-sm-12">
+                <label class="col-sm-4 control-label">Order by</label>
+
+                <div class="col-sm-8">
+                    <select ng-model="orderProp" ng-init="orderProp='pr'" class="form-control">
+                        <option value="pr">Default</option>
+                        <option value="title">Name</option>
+                        <option value="entityID">entidyID</option>
+                        <option value="distance">distance</option>
+                    </select></div>
+            </div>
+            <div class="col-sm-12">
+
+                <label class="col-sm-4 control-label">Limit result</label>
+
+                <div class="col-sm-8">
+                    <select ng-model="limitToShow" ng-init="limitToShow='20'" class="form-control">
+                        <option value="20" ng-selected="true">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-6">
+
+            <div ng-show="errormessage != null" class="alert alert-danger" role="alert">{{errormessage}}</div>
+            <div ng-show="SP != null" class="col-sm-12 bg-primary">
+                <p>
+                <h4>Choose your home organisation to login to <i>{{SP}}</i> <img ng-show="SPLOGO!=null" src="{{SPLOGO}}" style="max-width: 150px;" class="inline"/></h4>
+                </p>
+            </div>
+            <div ng-show="loadingList != false" class="text-center"> <img ng-src="img/loader.gif" /></div>
+            <div ng-show="idpList.length > 5" class="alert alert-info" role="alert">showing {{limitToShow}} of
+                {{idpList.length}}
+            </div>
+            <div class="col-sm-12 input-group" role="search">
+
+                <input type="search"  placeholder="search" ng-model="search" class="form-control">
+                <span  ng-show="search != null && search.length > 0 " class="input-group-btn"><button type="button" class="btn btn-danger" ng-click="search = null">Clear</button></span>
+
+            </div>
+            <!--Body content-->
+            <div class="services col-xs-12">
+                <div ng-repeat="idp in idpList | discoFilter1:search  |orderBy:[orderProp,'pr','distance','title'] | limitTo:limitToShow"
+                     class="row thumbnail idp-listing">
+                    <div class="col-xs-1 text-right top pull-right">
+                        <div ng-show="idp.geo.lat != null">
+                            <a ng-href="#" ng-click="showModal(idp.title,idp.entityID, idp.geo)"><span
+                                    class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-11" ng-click="updatelast(idp.entityID)">
+                        <div class="col-sm-3">
+                            <a ng-href="{{returnparam}}&{{returnidparam}}={{idp.entityID}}" target="_self" class="thumb">
+                                <img ng-src="{{idp.icon}}" />
+                            </a>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4><a ng-href="{{returnparam}}&{{returnidparam}}={{idp.entityID}}" target="_self">{{idp.title}}</a></h4>
+                            <h5 ng-show="showall != null">{{idp.entityID}}</h5>
+                            <span style="display:none">{{idp.pr}}</p></span>
+
+                            <div ng-show="idp.distance != null" distance-in-km></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

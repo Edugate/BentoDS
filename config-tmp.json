@@ -1,0 +1,10 @@
+{
+ "title" : "discoverty serice dsfsdf",
+ "logo" : "logo.png",
+ "basehref" : "/DS/",
+ "srcidplist": "https://edugate.heanet.ie/rr3/disco/circle/",
+ "srcdataapp": "jagger",
+ "srcidplistfallback": "https://edugate.heanet.ie/rr3/disco/getall/metadata.json",
+ "srcdataappfallback": "jagger",
+ "srcrequesterinfo": "https://edugate.heanet.ie/rr3/disco/requester/"
+}

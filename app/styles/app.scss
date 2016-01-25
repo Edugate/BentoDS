@@ -1,0 +1,123 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+.navbar-default{
+  background-color: #014289;
+    border-color: #e7e7e7;
+}
+.footer {
+  min-height: 20px;
+  background-color: #014289;
+  border-color: #e7e7e7;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+}
+
+
+
+.services {
+
+  margin-top: 10px;
+}
+.thumbnail {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.thumb > img {
+  margin: -0.5em 1em 1.5em 0;
+  /*padding-bottom: 1em;*/
+  max-width: 100%;
+  max-height: 50px;
+  vertical-align: bottom;
+}
+
+.services > div {
+  clear: both;
+  min-height: 15px;
+  margin-top: 3px;
+  maring-bottom: 3px;
+}
+
+
+
+img.phone:first-child {
+  display: block;
+}
+
+
+div.phone-thumbs {
+  margin: 0;
+  list-style: none;
+}
+
+
+
+div.specs {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div.specs > div{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+div.specs > div > span{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+div.specs dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+}
+#map_canvas {
+  position: relative;
+}
+
+
+map, div[map] {display:block; width:100%; height:320px;}
+.animate-enter,
+.animate-leave
+{
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+.animate-enter.animate-enter-active,
+.animate-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+input {
+  color:red !important;
+  font-weight: bold;
+
+}
