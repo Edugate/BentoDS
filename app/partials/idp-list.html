@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-10 col-lg-6">
 
-            <div ng-show="errormessage != null" class="alert alert-danger" role="alert">{{errormessage}}</div>
+            <div ng-show="errormessage != null" role="alert" class="alert alert-danger" ng-bind="errormessage"></div>
             <div ng-show="SP != null" class="col-sm-12 bg-primary">
                 <p>
                 <h4>Choose your home organisation to login to <i>{{SP}}</i> <img ng-show="SPLOGO!=null" src="{{SPLOGO}}" style="max-width: 150px;" class="inline"/></h4>
