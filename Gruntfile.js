@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     'srcdataappfallback': 'jagger',
     'srcrequesterinfo': 'https://edugate.heanet.ie/rr3/disco/requester/',
     'xdomainproxyurl': 'https://edugate.heanet.ie/proxy.html'
-  }
+  };
 
   var jnl;
   try {
@@ -95,15 +95,15 @@ module.exports = function (grunt) {
           patterns: [
             {
               json: {
-                "title": jnl.title,
-                "logo": jnl.logo,
-                "basehref": jnl.basehref,
-                "srcidplist": jnl.srcidplist,
-                "srcidplistfallback": jnl.srcidplistfallback,
-                "srcdataapp": jnl.srcdataapp,
-                "srcdataappfallback": jnl.srcdataappfallback,
-                "srcrequesterinfo": jnl.srcrequesterinfo,
-                "xdomainproxyurl": jnl.xdomainproxyurl
+                'title': jnl.title,
+                'logo': jnl.logo,
+                'basehref': jnl.basehref,
+                'srcidplist': jnl.srcidplist,
+                'srcidplistfallback': jnl.srcidplistfallback,
+                'srcdataapp': jnl.srcdataapp,
+                'srcdataappfallback': jnl.srcdataappfallback,
+                'srcrequesterinfo': jnl.srcrequesterinfo,
+                'xdomainproxyurl': jnl.xdomainproxyurl
               }
             }
           ],

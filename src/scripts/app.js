@@ -1,8 +1,8 @@
-
-(function() {
-    "use strict";
+(function () {
+    'use strict';
     var method;
-    var noop = function () {};
+    var noop = function () {
+    };
     var methods = [
         'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
         'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
@@ -48,7 +48,7 @@ BentoDS.constant('config', {
 
 BentoDS.config(['$locationProvider', '$routeProvider',
     function ($locationProvider, $routeProvider) {
-      "use strict";
+        'use strict';
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: true
@@ -68,9 +68,9 @@ BentoDS.config(['$locationProvider', '$routeProvider',
 ]);
 
 
-var ModalInstanceCtrl = ['$rootScope', '$scope', '$uibModalInstance','$uibModal', 'item',function ($rootScope, $scope, $uibModalInstance, $uibModal, item) {
+var ModalInstanceCtrl = ['$rootScope', '$scope', '$uibModalInstance', '$uibModal', 'item', function ($rootScope, $scope, $uibModalInstance, $uibModal, item) {
 
-  "use strict";
+    'use strict';
     $scope.item = item;
     $scope.ok = function () {
         $uibModalInstance.close();
@@ -81,16 +81,16 @@ var ModalInstanceCtrl = ['$rootScope', '$scope', '$uibModalInstance','$uibModal'
         $uibModalInstance.dismiss('cancel');
     };
     $scope.$on('mapInitialized', function (event, map) {
-        google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-            google.maps.event.trigger(map, 'resize');
-            if ($scope.item.geo.lat !== undefined) {
-                var newLa = new google.maps.LatLng($scope.item.geo.lat, $scope.item.geo.lon);
+        //   google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+        google.maps.event.trigger(map, 'resize');
+        if ($scope.item.geo.lat !== undefined) {
+            var newLa = new google.maps.LatLng($scope.item.geo.lat, $scope.item.geo.lon);
+            map.setCenter(newLa);
+          //  window.console.log($scope.item);
 
-                map.setCenter(newLa);
-                window.console.log($scope.item);
+        }
 
-            }
-        });
+        //  });
 
 
     });
