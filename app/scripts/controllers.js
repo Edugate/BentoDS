@@ -11,7 +11,7 @@ dsControllers.controller('ProviderListCtrl', ['config', '$scope', 'ipCookie', '$
         return false;
     }
 
- window.console.log('params.entityID  is:"'+params.entityID+'"');
+
     var pentityid = params.entityID;
     var preturn = params.return;
     var returnidparam = params.returnIDParam;
@@ -70,37 +70,94 @@ dsControllers.controller('ProviderListCtrl', ['config', '$scope', 'ipCookie', '$
         });
 
     }
-    var urlSrc = config.srcIdPList + encodedEntityid + '/metadata.json';
+    var requestConf;
+    if (config.srcDataApp === 'jagger') {
+        if (config.srcIdPMethod === 'JSONP') {
+
+            requestConf = {
+                method: 'JSONP',
+                url: config.srcIdPList + encodedEntityid + '/metadata.json?callback=JSON_CALLBACK'
+            };
+        }
+        else {
+            requestConf = {
+                method: config.srcIdPMethod,
+                url: config.srcIdPList + encodedEntityid + '/metadata.json'
+            };
+        }
+
+    }
+    else {
+        if (config.srcIdPMethod === 'JSONP') {
+            requestConf = {
+                method: config.srcIdPMethod,
+                url: config.srcIdPList + '&callback=JSON_CALLBACK'
+            };
+        }
+        else{
+            requestConf = {
+                method: config.srcIdPMethod,
+                url: config.srcIdPList
+            };
+        }
+    }
+
     var urlSrcFallback = config.srcIdPListFallback;
     $scope.loadingList = true;
-    $http.get(urlSrc).then(function (response) {
-            $scope.mdata = response.data;
-            window.console.log('DOWNLOADED');
-            if (angular.isArray($scope.mdata)) {
+    $http(requestConf).then(function (response) {
+            $scope.mdata = [];
+            if (config.srcDataApp === 'jagger') {
+                $scope.idpList = response.data;
+            }
+            else {
+                var tmpData = [];
+                var tmpRow;
+                angular.forEach(response.data, function (value, key) {
+                    tmpRow = [];
+                    tmpRow.entityID = value.entityID;
+                    tmpRow.title = value.entityID;
+                    if (value.DisplayNames) {
+                        angular.forEach(value.DisplayNames, function (value2, key2) {
 
-                if (($scope.position !== null) || ($scope.lastSelected !== null)) {
-                    angular.forEach($scope.mdata, function (value, key) {
-                        value.pr = 0;
+                            if (value2.lang === 'en') {
+                                tmpRow.title = value2.value;
+                                return false;
+                            }
+                        });
+                    }
+                    tmpRow.icon = '';
+                    if (value.Logos) {
+                        angular.forEach(value.Logos, function (value2, key2) {
 
-                        if ($scope.position !== null && value.geo !== undefined) {
-                            value.distance = DistanceCalculatorService.calcCrow($scope.position.coords, value.geo);
-                        }
-                        if (value.entityID === $scope.prevlastSelected) {
-                            value.pr = value.pr - 100;
-                        }
-                        else if (value.entityID === $scope.lastSelected) {
-                            window.console.log('ENTITYID ' + value.entityID);
-                            value.pr = value.pr - 200;
-                        }
+                            if (value2.lang === undefined || value2.lang === 'en') {
+                                tmpRow.icon = value2.value;
+                                return false;
+                            }
+                        });
+                    }
+                    tmpData.push(tmpRow);
+                });
+                $scope.idpList = tmpData;
+            }
+            if (($scope.position !== null) || ($scope.lastSelected !== null)) {
+                angular.forEach($scope.idpList, function (value, key) {
+                    value.pr = 0;
+                    if ($scope.position !== null && value.geo !== undefined) {
+                        value.distance = DistanceCalculatorService.calcCrow($scope.position.coords, value.geo);
+                    }
+                    if (value.entityID === $scope.prevlastSelected) {
+                        value.pr = value.pr - 100;
+                    }
+                    else if (value.entityID === $scope.lastSelected) {
+                        value.pr = value.pr - 200;
+                    }
 
-                        window.console.log('PR: ' + value.pr);
 
-                    });
-                }
+                });
             }
 
+
             $scope.loadingList = false;
-            $scope.idpList = response.data;
 
         },
         function () {

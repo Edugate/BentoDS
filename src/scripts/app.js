@@ -38,12 +38,15 @@ var BentoDS = angular.module('BentoDS', [ // jshint ignore:line
 
 ]);
 
+
 BentoDS.constant('config', {
     srcDataApp: '@@srcdataapp',
     srcIdPList: '@@srcidplist',
+    srcIdPMethod:'@@srcidpmethod',
     srcRequesterInfo: '@@srcrequesterinfo',
     srcIdPListFallback: '@@srcidplistfallback',
-    srcDataAppFallback: '@@srcdataappfallback'
+    srcDataAppFallback: '@@srcdataappfallback',
+    srcIdPMethodFallback:'@@srcidpmethodfallback'
 });
 
 BentoDS.config(['$locationProvider', '$routeProvider',

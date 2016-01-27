@@ -3,9 +3,11 @@
  "logo" : "logo.png",
  "basehref" : "/DS/",
  "srcidplist": "https://edugate.heanet.ie/rr3/disco/circle/",
+ "srcidpmethod": "GET",
  "srcdataapp": "jagger",
  "srcidplistfallback": "https://edugate.heanet.ie/rr3/disco/getall/metadata.json",
  "srcdataappfallback": "jagger",
+ "srcidpmethodfallback": "GET",
  "srcrequesterinfo": "https://edugate.heanet.ie/rr3/disco/requester/",
  "xdomainproxyurl": "https://edugate.heanet.ie/proxy.html"
 }
