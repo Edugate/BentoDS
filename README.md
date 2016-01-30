@@ -36,6 +36,7 @@ BentoDS is a simple IdP Discovery Service (SAML).
         * 'JSONP'
      * srcidplistfallback : optional location of data - needs to be the same format as generated from srcidplist
      * srcdataappfallback : keep as it is 'jagger'
+     * srcidpmethodfallback : 'GET'
      * srcrequesterinfo : url to retrieve info about SP from jagger
      * xdomainproxyurl : to get IE9 working properly you need to create proxy.html file somewhere on virtualhost where you want
        to retrieve data from. The proxy.html should look like:
