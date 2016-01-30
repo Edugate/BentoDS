@@ -25,8 +25,15 @@ BentoDS is a simple IdP Discovery Service (SAML).
      * logo : filename with you logo - copy you logo into app/img/
      * basehref : URI of your service - for example if you plan to set you DiscoveryService as https://example.com/WAYF/ 
        you need to set '/WAYF/' - remember about slashes
-     * srcidplist : URL of you Jagger instance's controller 
-     * srcdataapp : keep it as it is - 'jagger'
+     * srcidplist : working URL source like:
+        * of you Jagger instance's controller https://HOST/JAGGER_APP/disco/circle/
+        * shibboleth DiscoFeed URL
+     * srcdataapp :
+        * 'jagger'
+        * 'discofeed'
+     * srcidpmethod :
+        * 'GET'
+        * 'JSONP'
      * srcidplistfallback : optional location of data - needs to be the same format as generated from srcidplist
      * srcdataappfallback : keep as it is 'jagger'
      * srcrequesterinfo : url to retrieve info about SP from jagger
