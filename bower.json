@@ -2,23 +2,23 @@
   "name": "BentoDS",
   "version": "1.0.1",
   "dependencies": {
-    "angular": "^1.4.0",
+    "angular": "1.4.*",
     "bootstrap-sass-official": "^3.2.0",
-    "angular-animate": "^1.4.0",
-    "angular-cookies": "^1.4.0",
+    "angular-animate": "1.4.*",
+    "angular-cookies": "1.4.*",
     "angular-cookie": "^4.0.10",
-    "angular-resource": "^1.4.0",
-    "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0",
+    "angular-resource": "1.4.*",
+    "angular-route": "1.4.*",
+    "angular-sanitize": "1.4.*",
+    "angular-touch": "1.4.*",
     "angular-google-maps": "*",
-    "angular-base64": "^2.0.5",
-    "angular-bootstrap": "^1.1.*",
+    "angular-base64": "2.0.*",
+    "angular-bootstrap": "1.1.1",
     "ngmap": "^1.16.7",
-    "xdomain": "^0.7.4"
+    "xdomain": "0.7.5"
   },
   "devDependencies": {
-    "angular-mocks": "^1.4.0"
+    "angular-mocks": "1.4.*"
   },
   "appPath": "app",
   "moduleName": "BentoDS",
