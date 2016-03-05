@@ -1,6 +1,6 @@
 {
   "name": "BentoDS",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
     "angular": "1.4.*",
     "bootstrap-sass-official": "^3.2.0",
